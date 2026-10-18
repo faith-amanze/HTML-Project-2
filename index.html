@@ -4,54 +4,42 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Delicious Bites Menu</title>
-  <style>
-    :root { --ink:#1f2933; --muted:#6b7280; --brand:#e4572e; --brand-dark:#c74421; --bg:#faf7f2; --card:#fff; --line:#eee6da; }
-    * { box-sizing: border-box; }
-    body { margin:0; font-family: "Segoe UI", Roboto, Arial, sans-serif; background:var(--bg); color:var(--ink); }
-    header { background:var(--card); border-bottom:1px solid var(--line); position:sticky; top:0; z-index:5; }
-    .bar { max-width:1100px; margin:0 auto; padding:14px 20px; display:flex; align-items:center; justify-content:space-between; }
-    .bar h1 { margin:0; font-size:1.4rem; color:var(--brand); }
-    .cart { background:var(--ink); color:#fff; border-radius:999px; padding:8px 16px; font-size:.9rem; }
-    main { max-width:1100px; margin:0 auto; padding:10px 20px 40px; }
-    h2 { font-size:1.5rem; margin:36px 0 16px; padding-bottom:8px; border-bottom:2px solid var(--line); }
-    ul.grid { list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
-    ul.grid li { background:var(--card); border:1px solid var(--line); border-radius:14px; overflow:hidden; display:flex; flex-direction:column; transition:transform .15s, box-shadow .15s; position:relative; }
-    ul.grid li:hover { transform:translateY(-4px); box-shadow:0 10px 24px rgba(0,0,0,.08); }
-    .img { aspect-ratio:3/2; background:#f3ece1; position:relative; }
-    .img img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:1; }
-    .img svg { width:100%; height:100%; display:block; }
-    .badge { position:absolute; top:10px; left:10px; background:var(--brand); color:#fff; font-size:.72rem; font-weight:600; padding:4px 10px; border-radius:999px; }
-    .info { padding:14px 16px 16px; display:flex; flex-direction:column; gap:6px; flex:1; }
-    .info strong { font-size:1.05rem; }
-    .stars { color:#f5a623; font-size:.85rem; letter-spacing:1px; }
-    .stars span { color:var(--muted); letter-spacing:0; margin-left:6px; }
-    .info p { margin:0; color:var(--muted); font-size:.9rem; line-height:1.45; flex:1; }
-    .buy { display:flex; align-items:center; justify-content:space-between; margin-top:10px; }
-    .price { font-size:1.2rem; font-weight:700; }
-    button { background:var(--brand); color:#fff; border:0; border-radius:8px; padding:9px 14px; font-weight:600; cursor:pointer; }
-    button:hover { background:var(--brand-dark); }
-    @media (max-width:800px) { ul.grid { grid-template-columns:repeat(2,1fr); } }
-    @media (max-width:520px) { ul.grid { grid-template-columns:1fr; } }
-    footer { text-align:center; padding:30px 20px 50px; }
-    footer a { color:var(--brand); font-weight:600; }
-  </style>
+  <!-- Roboto font -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<!-- Our stylesheet -->
+<link rel="stylesheet" href="styles.css">
 </head>
-<body>
-  <header>
-    <div class="bar">
-      <h1>Delicious Bites Menu</h1>
-      <div class="cart">Cart: <span id="count">0</span></div>
-    </div>
-  </header>
+<body class="page">
+  <header class="site-header">
+<div class="header-inner">
+<a class="logo" href="#top">Delicious Bites</a>
+<nav class="navbar">
+<ul class="nav-list">
+<li class="nav-item"><a class="nav-link" href="#appetizers">Appetizers</a></li>
+<li class="nav-item"><a class="nav-link" href="#main-courses">Main Courses</a></li>
+<li class="nav-item"><a class="nav-link" href="#desserts">Desserts</a></li>
+<li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+</ul>
+</nav>
+<div class="cart">Cart: <span class="cart-count" id="count">0</span></div>
+</div>
+</header>
 
-  <main>
-    <h2>Appetizers</h2>
-    <ul class="grid">
-      <li>
+<section class="hero" id="top">
+<h1 class="hero-title">Delicious Bites Menu</h1>
+<p class="hero-text">Fresh starters, hearty mains and sweet endings. Pick your favourites and add them to your cart.</p>
+</section>
+
+  <main class="menu">
+    <h2 class="section-title" id="appetizers">Appetizers</h2>
+    <ul class="menu-grid">
+      <li class="menu-item">
         <span class="badge">Fresh</span>
-        <div class="img">
-          <img src="images/caprese-salad.webp" alt="Caprese salad" onerror="this.remove()">
-          <svg viewBox="0 0 300 200" role="img" aria-label="Caprese salad">
+        <div class="item-image">
+          <img class="item-photo" src="images/caprese-salad.webp" alt="Caprese salad" onerror="this.remove()">
+          <svg class="item-art" viewBox="0 0 300 200" role="img" aria-label="Caprese salad">
             <rect width="300" height="200" fill="#f6e7d4"/>
             <circle cx="150" cy="105" r="80" fill="#fff"/><circle cx="150" cy="105" r="62" fill="#f4f1ec"/>
             <circle cx="115" cy="95" r="22" fill="#d93a2b"/><circle cx="115" cy="95" r="14" fill="#e8604f"/>
@@ -63,18 +51,18 @@
             <ellipse cx="170" cy="140" rx="11" ry="6" fill="#3aa346" transform="rotate(-20 170 140)"/>
           </svg>
         </div>
-        <div class="info">
-          <strong>Caprese Salad</strong>
-          <div class="stars">★★★★★<span>4.8 (124)</span></div>
-          <p>Fresh tomatoes, mozzarella, and basil drizzled with balsamic glaze.</p>
-          <div class="buy"><span class="price">$8.50</span><button>Add to cart</button></div>
+        <div class="item-info">
+          <strong class="item-name">Caprese Salad</strong>
+          <div class="rating">★★★★★<span class="rating-count">4.8 (124)</span></div>
+          <p class="item-desc">Fresh tomatoes, mozzarella, and basil drizzled with balsamic glaze.</p>
+          <div class="item-buy"><span class="price">$8.50</span><button class="btn-add" type="button">Add to cart</button></div>
         </div>
       </li>
-      <li>
+      <li class="menu-item">
         <span class="badge">Bestseller</span>
-        <div class="img">
-          <img src="images/crispy-calamari.jpeg" alt="Crispy calamari" onerror="this.remove()">
-          <svg viewBox="0 0 300 200" role="img" aria-label="Crispy calamari">
+        <div class="item-image">
+          <img class="item-photo" src="images/crispy-calamari.jpeg" alt="Crispy calamari" onerror="this.remove()">
+          <svg class="item-art" viewBox="0 0 300 200" role="img" aria-label="Crispy calamari">
             <rect width="300" height="200" fill="#f6e7d4"/>
             <circle cx="140" cy="105" r="80" fill="#fff"/><circle cx="140" cy="105" r="62" fill="#f4f1ec"/>
             <g fill="none" stroke="#d9972b" stroke-width="9">
@@ -85,17 +73,17 @@
             <circle cx="230" cy="70" r="22" fill="#c9341f"/><circle cx="230" cy="70" r="15" fill="#e0523d"/>
           </svg>
         </div>
-        <div class="info">
-          <strong>Crispy Calamari</strong>
-          <div class="stars">★★★★☆<span>4.5 (98)</span></div>
-          <p>Lightly battered squid rings fried golden, served with spicy marinara and lemon.</p>
-          <div class="buy"><span class="price">$10.00</span><button>Add to cart</button></div>
+        <div class="item-info">
+          <strong class="item-name">Crispy Calamari</strong>
+          <div class="rating">★★★★☆<span class="rating-count">4.5 (98)</span></div>
+          <p class="item-desc">Lightly battered squid rings fried golden, served with spicy marinara and lemon.</p>
+          <div class="item-buy"><span class="price">$10.00</span><button class="btn-add" type="button">Add to cart</button></div>
         </div>
       </li>
-      <li>
-        <div class="img">
-          <img src="images/stuffed-mushrooms.jpeg" alt="Stuffed mushrooms" onerror="this.remove()">
-          <svg viewBox="0 0 300 200" role="img" aria-label="Stuffed mushrooms">
+      <li class="menu-item">
+        <div class="item-image">
+          <img class="item-photo" src="images/stuffed-mushrooms.jpeg" alt="Stuffed mushrooms" onerror="this.remove()">
+          <svg class="item-art" viewBox="0 0 300 200" role="img" aria-label="Stuffed mushrooms">
             <rect width="300" height="200" fill="#f6e7d4"/>
             <circle cx="150" cy="105" r="80" fill="#fff"/><circle cx="150" cy="105" r="62" fill="#f4f1ec"/>
             <g>
@@ -105,22 +93,22 @@
             </g>
           </svg>
         </div>
-        <div class="info">
-          <strong>Stuffed Mushrooms</strong>
-          <div class="stars">★★★★☆<span>4.4 (76)</span></div>
-          <p>Button mushrooms filled with garlic, herbs, and cream cheese, baked until bubbly.</p>
-          <div class="buy"><span class="price">$9.00</span><button>Add to cart</button></div>
+        <div class="item-info">
+          <strong class="item-name">Stuffed Mushrooms</strong>
+          <div class="rating">★★★★☆<span class="rating-count">4.4 (76)</span></div>
+          <p class="item-desc">Button mushrooms filled with garlic, herbs, and cream cheese, baked until bubbly.</p>
+          <div class="item-buy"><span class="price">$9.00</span><button class="btn-add" type="button">Add to cart</button></div>
         </div>
       </li>
     </ul>
 
-    <h2>Main Courses</h2>
-    <ul class="grid">
-      <li>
+    <h2 class="section-title" id="main-courses">Main Courses</h2>
+    <ul class="menu-grid">
+      <li class="menu-item">
         <span class="badge">Chef's Pick</span>
-        <div class="img">
-          <img src="images/grilled-salmon.jpeg" alt="Grilled salmon" onerror="this.remove()">
-          <svg viewBox="0 0 300 200" role="img" aria-label="Grilled salmon">
+        <div class="item-image">
+          <img class="item-photo" src="images/grilled-salmon.jpeg" alt="Grilled salmon" onerror="this.remove()">
+          <svg class="item-art" viewBox="0 0 300 200" role="img" aria-label="Grilled salmon">
             <rect width="300" height="200" fill="#e9eef2"/>
             <circle cx="150" cy="105" r="82" fill="#fff"/><circle cx="150" cy="105" r="64" fill="#f4f1ec"/>
             <rect x="95" y="80" width="110" height="50" rx="24" fill="#f08a5d" transform="rotate(-12 150 105)"/>
@@ -130,17 +118,17 @@
             <path d="M100 140q20 -15 35 5" stroke="#2f8f3a" stroke-width="4" fill="none"/>
           </svg>
         </div>
-        <div class="info">
-          <strong>Grilled Salmon</strong>
-          <div class="stars">★★★★★<span>4.9 (210)</span></div>
-          <p>Salmon fillet seasoned and grilled to perfection, served with lemon butter sauce.</p>
-          <div class="buy"><span class="price">$22.00</span><button>Add to cart</button></div>
+        <div class="item-info">
+          <strong class="item-name">Grilled Salmon</strong>
+          <div class="rating">★★★★★<span class="rating-count">4.9 (210)</span></div>
+          <p class="item-desc">Salmon fillet seasoned and grilled to perfection, served with lemon butter sauce.</p>
+          <div class="item-buy"><span class="price">$22.00</span><button class="btn-add" type="button">Add to cart</button></div>
         </div>
       </li>
-      <li>
-        <div class="img">
-          <img src="images/herb-roasted-chicken.jpeg" alt="Herb-roasted chicken" onerror="this.remove()">
-          <svg viewBox="0 0 300 200" role="img" aria-label="Herb-roasted chicken">
+      <li class="menu-item">
+        <div class="item-image">
+          <img class="item-photo" src="images/herb-roasted-chicken.jpeg" alt="Herb-roasted chicken" onerror="this.remove()">
+          <svg class="item-art" viewBox="0 0 300 200" role="img" aria-label="Herb-roasted chicken">
             <rect width="300" height="200" fill="#e9eef2"/>
             <circle cx="150" cy="105" r="82" fill="#fff"/><circle cx="150" cy="105" r="64" fill="#f4f1ec"/>
             <ellipse cx="135" cy="100" rx="45" ry="30" fill="#b9732f"/><ellipse cx="130" cy="92" rx="34" ry="16" fill="#d6924a"/>
@@ -151,18 +139,18 @@
             <circle cx="170" cy="130" r="3" fill="#2f8f3a"/><circle cx="185" cy="136" r="3" fill="#2f8f3a"/>
           </svg>
         </div>
-        <div class="info">
-          <strong>Herb-Roasted Chicken</strong>
-          <div class="stars">★★★★☆<span>4.6 (143)</span></div>
-          <p>Half chicken roasted with rosemary and thyme, served with garlic mashed potatoes.</p>
-          <div class="buy"><span class="price">$18.50</span><button>Add to cart</button></div>
+        <div class="item-info">
+          <strong class="item-name">Herb-Roasted Chicken</strong>
+          <div class="rating">★★★★☆<span class="rating-count">4.6 (143)</span></div>
+          <p class="item-desc">Half chicken roasted with rosemary and thyme, served with garlic mashed potatoes.</p>
+          <div class="item-buy"><span class="price">$18.50</span><button class="btn-add" type="button">Add to cart</button></div>
         </div>
       </li>
-      <li>
+      <li class="menu-item">
         <span class="badge">Vegetarian</span>
-        <div class="img">
-          <img src="images/mushroom-risotto.jpeg" alt="Mushroom risotto" onerror="this.remove()">
-          <svg viewBox="0 0 300 200" role="img" aria-label="Mushroom risotto">
+        <div class="item-image">
+          <img class="item-photo" src="images/mushroom-risotto.jpeg" alt="Mushroom risotto" onerror="this.remove()">
+          <svg class="item-art" viewBox="0 0 300 200" role="img" aria-label="Mushroom risotto">
             <rect width="300" height="200" fill="#e9eef2"/>
             <circle cx="150" cy="105" r="82" fill="#fff"/><circle cx="150" cy="105" r="64" fill="#f4f1ec"/>
             <ellipse cx="150" cy="105" rx="52" ry="40" fill="#f3e6bd"/><ellipse cx="150" cy="98" rx="40" ry="26" fill="#f8efcf"/>
@@ -171,22 +159,22 @@
             <path d="M140 80q10 -8 20 0" stroke="#d6c28a" stroke-width="3" fill="none"/>
           </svg>
         </div>
-        <div class="info">
-          <strong>Mushroom Risotto</strong>
-          <div class="stars">★★★★★<span>4.7 (89)</span></div>
-          <p>Creamy Arborio rice slowly simmered with wild mushrooms, white wine, and Parmesan.</p>
-          <div class="buy"><span class="price">$16.00</span><button>Add to cart</button></div>
+        <div class="item-info">
+          <strong class="item-name">Mushroom Risotto</strong>
+          <div class="rating">★★★★★<span class="rating-count">4.7 (89)</span></div>
+          <p class="item-desc">Creamy Arborio rice slowly simmered with wild mushrooms, white wine, and Parmesan.</p>
+          <div class="item-buy"><span class="price">$16.00</span><button class="btn-add" type="button">Add to cart</button></div>
         </div>
       </li>
     </ul>
 
-    <h2>Desserts</h2>
-    <ul class="grid">
-      <li>
+    <h2 class="section-title" id="desserts">Desserts</h2>
+    <ul class="menu-grid">
+      <li class="menu-item">
         <span class="badge">Sharing</span>
-        <div class="img">
-          <img src="images/chocolate-fondue.jpeg" alt="Chocolate fondue" onerror="this.remove()">
-          <svg viewBox="0 0 300 200" role="img" aria-label="Chocolate fondue">
+        <div class="item-image">
+          <img class="item-photo" src="images/chocolate-fondue.jpeg" alt="Chocolate fondue" onerror="this.remove()">
+          <svg class="item-art" viewBox="0 0 300 200" role="img" aria-label="Chocolate fondue">
             <rect width="300" height="200" fill="#f3e1e6"/>
             <ellipse cx="150" cy="160" rx="85" ry="14" fill="#d8c3c9"/>
             <path d="M95 95h110v40q0 20 -20 20h-70q-20 0 -20 -20z" fill="#5a3a2e"/>
@@ -195,18 +183,18 @@
             <g stroke="#b88a5a" stroke-width="3"><path d="M105 72l30 30M195 72l-30 30"/></g>
           </svg>
         </div>
-        <div class="info">
-          <strong>Chocolate Fondue</strong>
-          <div class="stars">★★★★★<span>4.9 (167)</span></div>
-          <p>Assorted fruits and marshmallows served with rich chocolate fondue.</p>
-          <div class="buy"><span class="price">$12.00</span><button>Add to cart</button></div>
+        <div class="item-info">
+          <strong class="item-name">Chocolate Fondue</strong>
+          <div class="rating">★★★★★<span class="rating-count">4.9 (167)</span></div>
+          <p class="item-desc">Assorted fruits and marshmallows served with rich chocolate fondue.</p>
+          <div class="item-buy"><span class="price">$12.00</span><button class="btn-add" type="button">Add to cart</button></div>
         </div>
       </li>
-      <li>
+      <li class="menu-item">
         <span class="badge">Bestseller</span>
-        <div class="img">
-          <img src="images/classic-tiramisu.jpeg" alt="Classic tiramisu" onerror="this.remove()">
-          <svg viewBox="0 0 300 200" role="img" aria-label="Classic tiramisu">
+        <div class="item-image">
+          <img class="item-photo" src="images/classic-tiramisu.jpeg" alt="Classic tiramisu" onerror="this.remove()">
+          <svg class="item-art" viewBox="0 0 300 200" role="img" aria-label="Classic tiramisu">
             <rect width="300" height="200" fill="#f3e1e6"/>
             <ellipse cx="150" cy="150" rx="95" ry="14" fill="#fff"/>
             <rect x="85" y="75" width="130" height="70" rx="6" fill="#f5e6c8"/>
@@ -215,17 +203,17 @@
             <g fill="#5a3a2e"><circle cx="110" cy="82" r="2"/><circle cx="140" cy="85" r="2"/><circle cx="175" cy="81" r="2"/><circle cx="200" cy="85" r="2"/></g>
           </svg>
         </div>
-        <div class="info">
-          <strong>Classic Tiramisu</strong>
-          <div class="stars">★★★★★<span>4.8 (201)</span></div>
-          <p>Layers of espresso-soaked ladyfingers and mascarpone cream, dusted with cocoa.</p>
-          <div class="buy"><span class="price">$9.50</span><button>Add to cart</button></div>
+        <div class="item-info">
+          <strong class="item-name">Classic Tiramisu</strong>
+          <div class="rating">★★★★★<span class="rating-count">4.8 (201)</span></div>
+          <p class="item-desc">Layers of espresso-soaked ladyfingers and mascarpone cream, dusted with cocoa.</p>
+          <div class="item-buy"><span class="price">$9.50</span><button class="btn-add" type="button">Add to cart</button></div>
         </div>
       </li>
-      <li>
-        <div class="img">
-          <img src="images/vanilla-bean-cheesecake.jpeg" alt="Vanilla bean cheesecake" onerror="this.remove()">
-          <svg viewBox="0 0 300 200" role="img" aria-label="Vanilla bean cheesecake">
+      <li class="menu-item">
+        <div class="item-image">
+          <img class="item-photo" src="images/vanilla-bean-cheesecake.jpeg" alt="Vanilla bean cheesecake" onerror="this.remove()">
+          <svg class="item-art" viewBox="0 0 300 200" role="img" aria-label="Vanilla bean cheesecake">
             <rect width="300" height="200" fill="#f3e1e6"/>
             <ellipse cx="150" cy="150" rx="95" ry="14" fill="#fff"/>
             <path d="M80 140L150 65L220 140z" fill="#fbf1d6"/>
@@ -235,23 +223,23 @@
             <g fill="#3b3a7a"><circle cx="165" cy="108" r="6"/><circle cx="128" cy="108" r="6"/></g>
           </svg>
         </div>
-        <div class="info">
-          <strong>Vanilla Bean Cheesecake</strong>
-          <div class="stars">★★★★☆<span>4.6 (118)</span></div>
-          <p>Smooth, creamy cheesecake on a graham cracker crust, topped with fresh berry compote.</p>
-          <div class="buy"><span class="price">$8.00</span><button>Add to cart</button></div>
+        <div class="item-info">
+          <strong class="item-name">Vanilla Bean Cheesecake</strong>
+          <div class="rating">★★★★☆<span class="rating-count">4.6 (118)</span></div>
+          <p class="item-desc">Smooth, creamy cheesecake on a graham cracker crust, topped with fresh berry compote.</p>
+          <div class="item-buy"><span class="price">$8.00</span><button class="btn-add" type="button">Add to cart</button></div>
         </div>
       </li>
     </ul>
   </main>
 
-  <footer>
-    <p><a href="contact.html">Contact us for reservations</a></p>
+  <footer class="site-footer">
+<p class="footer-text"><a class="footer-link" href="contact.html">Contact us for reservations</a></p>
   </footer>
 
   <script>
     var count = 0;
-    document.querySelectorAll("button").forEach(function (b) {
+    document.querySelectorAll(".btn-add").forEach(function (b) {
       b.addEventListener("click", function () {
         count++;
         document.getElementById("count").textContent = count;
