@@ -2,270 +2,230 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <!-- Makes the page scale correctly on phones -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Delicious Bites</title>
+  <title>Northwind Goods | Everyday carry, designed to last</title>
+
+  <!-- Bootstrap 5 (CSS framework for the grid, navbar, cards and buttons) -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons (cart, feature and social icons) -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <!-- Poppins font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Our own styles (loaded last so they can override Bootstrap) -->
   <link href="styles.css" rel="stylesheet">
 </head>
 <body>
 
-  <!-- Header / Navbar -->
-  <nav class="navbar navbar-expand-lg bg-white border-bottom sticky-top">
-    <div class="container">
-      <a class="navbar-brand logo" href="#home">Delicious Bites</a>
-      <span class="cart ms-auto ms-lg-3 me-3 me-lg-0 order-lg-last">Cart: <span id="count">0</span></span>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="mainNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="#menu">Menu</a></li>
-          <li class="nav-item"><a class="nav-link" href="#about">About Us</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+  <!-- ==================== HEADER: navigation ==================== -->
+  <header class="site-header sticky-top">
+    <nav class="navbar navbar-expand-md bg-white">
+      <div class="container">
+        <!-- Brand / logo -->
+        <a class="navbar-brand brand" href="#home">Northwind</a>
 
-  <!-- Hero -->
-  <header class="hero d-flex align-items-center justify-content-center text-center text-white" id="home">
-    <div class="container">
-      <h1 class="display-3 fw-black mb-3">Good food, made fresh every day</h1>
-      <p class="lead mb-4">Starters, mains and desserts you will want to share.</p>
-      <a href="#menu" class="btn btn-brand btn-lg px-5">View the menu</a>
-    </div>
+        <!-- Menu button shown on small screens -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#mainNav" aria-controls="mainNav"
+                aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Links to the sections of this page -->
+        <div class="collapse navbar-collapse" id="mainNav">
+          <ul class="navbar-nav ms-auto align-items-md-center gap-md-2">
+            <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="#products">Products</a></li>
+            <li class="nav-item"><a class="nav-link" href="#features">Why Us</a></li>
+            <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+            <li class="nav-item ms-md-2">
+              <a class="btn btn-ink btn-sm" href="#products"><i class="bi bi-bag me-1"></i>Shop</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
   </header>
 
-  <!-- Menu -->
-  <section class="py-5" id="menu">
-    <div class="container">
-      <h2 class="section-title text-center mb-5">Our Menu</h2>
-      <h3 class="category-title" id="appetizers">Appetizers</h3>
-      <div class="row g-4 mb-5">
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="card menu-card h-100">
-            <span class="badge item-badge">Fresh</span>
-            <img src="images/caprese-salad.webp" class="card-img-top item-photo" alt="Caprese Salad">
-            <div class="card-body d-flex flex-column">
-              <h4 class="h5 card-title">Caprese Salad</h4>
-              <div class="rating mb-1">★★★★★<span class="rating-count">4.8 (124)</span></div>
-              <p class="card-text text-muted">Fresh tomatoes, mozzarella, and basil drizzled with balsamic glaze.</p>
-              <div class="d-flex justify-content-between align-items-center mt-auto">
-                <span class="price">$8.50</span>
-                <button type="button" class="btn btn-brand btn-add">Add to cart</button>
-              </div>
+  <main>
+    <!-- ==================== HERO ==================== -->
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="row align-items-center g-4 gx-lg-5">
+          <!-- Text column -->
+          <div class="col-lg-6 text-center text-lg-start">
+            <span class="hero-tag">New season collection</span>
+            <h1 class="hero-title">Everyday carry, designed to last.</h1>
+            <p class="hero-text">Bags, audio and desk gear made with honest materials and a two-year warranty. Free shipping on orders over $50.</p>
+            <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center justify-content-lg-start">
+              <a href="#products" class="btn btn-accent btn-lg">Shop now</a>
+              <a href="#features" class="btn btn-outline-ink btn-lg">Why Northwind</a>
             </div>
           </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="card menu-card h-100">
-            <span class="badge item-badge">Bestseller</span>
-            <img src="images/crispy-calamari.jpeg" class="card-img-top item-photo" alt="Crispy Calamari">
-            <div class="card-body d-flex flex-column">
-              <h4 class="h5 card-title">Crispy Calamari</h4>
-              <div class="rating mb-1">★★★★☆<span class="rating-count">4.5 (98)</span></div>
-              <p class="card-text text-muted">Lightly battered squid rings fried golden, served with spicy marinara and lemon.</p>
-              <div class="d-flex justify-content-between align-items-center mt-auto">
-                <span class="price">$10.00</span>
-                <button type="button" class="btn btn-brand btn-add">Add to cart</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="card menu-card h-100">
-            <img src="images/stuffed-mushrooms.jpeg" class="card-img-top item-photo" alt="Stuffed Mushrooms">
-            <div class="card-body d-flex flex-column">
-              <h4 class="h5 card-title">Stuffed Mushrooms</h4>
-              <div class="rating mb-1">★★★★☆<span class="rating-count">4.4 (76)</span></div>
-              <p class="card-text text-muted">Button mushrooms filled with garlic, herbs, and cream cheese, baked until bubbly.</p>
-              <div class="d-flex justify-content-between align-items-center mt-auto">
-                <span class="price">$9.00</span>
-                <button type="button" class="btn btn-brand btn-add">Add to cart</button>
-              </div>
-            </div>
+          <!-- Image column (replace with a real product photo) -->
+          <div class="col-lg-6">
+            <img src="https://placehold.co/700x560/dfe6f7/1b2a4a?text=Hero+product+photo"
+                 class="img-fluid hero-img" alt="Northwind backpack and headphones on a desk">
           </div>
         </div>
       </div>
-      <h3 class="category-title" id="main-courses">Main Courses</h3>
-      <div class="row g-4 mb-5">
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="card menu-card h-100">
-            <span class="badge item-badge">Chef's Pick</span>
-            <img src="images/grilled-salmon.jpeg" class="card-img-top item-photo" alt="Grilled Salmon">
-            <div class="card-body d-flex flex-column">
-              <h4 class="h5 card-title">Grilled Salmon</h4>
-              <div class="rating mb-1">★★★★★<span class="rating-count">4.9 (210)</span></div>
-              <p class="card-text text-muted">Salmon fillet seasoned and grilled to perfection, served with lemon butter sauce.</p>
-              <div class="d-flex justify-content-between align-items-center mt-auto">
-                <span class="price">$22.00</span>
-                <button type="button" class="btn btn-brand btn-add">Add to cart</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="card menu-card h-100">
-            <img src="images/herb-roasted-chicken.jpeg" class="card-img-top item-photo" alt="Herb-Roasted Chicken">
-            <div class="card-body d-flex flex-column">
-              <h4 class="h5 card-title">Herb-Roasted Chicken</h4>
-              <div class="rating mb-1">★★★★☆<span class="rating-count">4.6 (143)</span></div>
-              <p class="card-text text-muted">Half chicken roasted with rosemary and thyme, served with garlic mashed potatoes.</p>
-              <div class="d-flex justify-content-between align-items-center mt-auto">
-                <span class="price">$18.50</span>
-                <button type="button" class="btn btn-brand btn-add">Add to cart</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="card menu-card h-100">
-            <span class="badge item-badge">Vegetarian</span>
-            <img src="images/mushroom-risotto.jpeg" class="card-img-top item-photo" alt="Mushroom Risotto">
-            <div class="card-body d-flex flex-column">
-              <h4 class="h5 card-title">Mushroom Risotto</h4>
-              <div class="rating mb-1">★★★★★<span class="rating-count">4.7 (89)</span></div>
-              <p class="card-text text-muted">Creamy Arborio rice slowly simmered with wild mushrooms, white wine, and Parmesan.</p>
-              <div class="d-flex justify-content-between align-items-center mt-auto">
-                <span class="price">$16.00</span>
-                <button type="button" class="btn btn-brand btn-add">Add to cart</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <h3 class="category-title" id="desserts">Desserts</h3>
-      <div class="row g-4 mb-5">
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="card menu-card h-100">
-            <span class="badge item-badge">Sharing</span>
-            <img src="images/chocolate-fondue.jpeg" class="card-img-top item-photo" alt="Chocolate Fondue">
-            <div class="card-body d-flex flex-column">
-              <h4 class="h5 card-title">Chocolate Fondue</h4>
-              <div class="rating mb-1">★★★★★<span class="rating-count">4.9 (167)</span></div>
-              <p class="card-text text-muted">Assorted fruits and marshmallows served with rich chocolate fondue.</p>
-              <div class="d-flex justify-content-between align-items-center mt-auto">
-                <span class="price">$12.00</span>
-                <button type="button" class="btn btn-brand btn-add">Add to cart</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="card menu-card h-100">
-            <span class="badge item-badge">Bestseller</span>
-            <img src="images/classic-tiramisu.jpeg" class="card-img-top item-photo" alt="Classic Tiramisu">
-            <div class="card-body d-flex flex-column">
-              <h4 class="h5 card-title">Classic Tiramisu</h4>
-              <div class="rating mb-1">★★★★★<span class="rating-count">4.8 (201)</span></div>
-              <p class="card-text text-muted">Layers of espresso-soaked ladyfingers and mascarpone cream, dusted with cocoa.</p>
-              <div class="d-flex justify-content-between align-items-center mt-auto">
-                <span class="price">$9.50</span>
-                <button type="button" class="btn btn-brand btn-add">Add to cart</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="card menu-card h-100">
-            <img src="images/vanilla-bean-cheesecake.jpeg" class="card-img-top item-photo" alt="Vanilla Bean Cheesecake">
-            <div class="card-body d-flex flex-column">
-              <h4 class="h5 card-title">Vanilla Bean Cheesecake</h4>
-              <div class="rating mb-1">★★★★☆<span class="rating-count">4.6 (118)</span></div>
-              <p class="card-text text-muted">Smooth, creamy cheesecake on a graham cracker crust, topped with fresh berry compote.</p>
-              <div class="d-flex justify-content-between align-items-center mt-auto">
-                <span class="price">$8.00</span>
-                <button type="button" class="btn btn-brand btn-add">Add to cart</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- About Us -->
-  <section class="py-5 bg-cream" id="about">
-    <div class="container">
-      <div class="row align-items-center g-5">
-        <div class="col-md-6">
-          <img src="images/mushroom-risotto.jpeg" class="img-fluid rounded-4 shadow" alt="Mushroom risotto from our kitchen">
-        </div>
-        <div class="col-md-6">
-          <h2 class="section-title mb-3">About Us</h2>
-          <p>Delicious Bites is a neighbourhood restaurant built around fresh ingredients and simple, honest cooking. Our menu changes with the seasons, and everything is prepared in-house.</p>
-          <p class="mb-0">Whether you stop by for a quick starter or a long dinner with friends, we want every guest to leave happy.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section class="py-5" id="contact">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-md-8 col-lg-6">
-          <h2 class="section-title text-center mb-4">Contact Us</h2>
-          <form class="needs-validation" novalidate>
-            <div class="mb-3">
-              <label for="name" class="form-label">Name</label>
-              <input type="text" class="form-control" id="name" required>
-              <div class="invalid-feedback">Please enter your name.</div>
+    <!-- ==================== FEATURES (store promises) ==================== -->
+    <section class="features" id="features">
+      <div class="container">
+        <div class="row g-4 text-center text-md-start">
+          <div class="col-12 col-md-4">
+            <div class="feature">
+              <i class="bi bi-truck feature-icon"></i>
+              <div>
+                <h2 class="feature-title">Free shipping</h2>
+                <p class="feature-text">On every order over $50, delivered in 3 to 5 days.</p>
+              </div>
             </div>
-            <div class="mb-3">
-              <label for="email" class="form-label">Email</label>
-              <input type="email" class="form-control" id="email" required>
-              <div class="invalid-feedback">Please enter a valid email address.</div>
+          </div>
+          <div class="col-12 col-md-4">
+            <div class="feature">
+              <i class="bi bi-arrow-repeat feature-icon"></i>
+              <div>
+                <h2 class="feature-title">30-day returns</h2>
+                <p class="feature-text">Not happy? Send it back for a full refund.</p>
+              </div>
             </div>
-            <div class="mb-3">
-              <label for="message" class="form-label">Message</label>
-              <textarea class="form-control" id="message" rows="4" required></textarea>
-              <div class="invalid-feedback">Please write a message.</div>
+          </div>
+          <div class="col-12 col-md-4">
+            <div class="feature">
+              <i class="bi bi-shield-check feature-icon"></i>
+              <div>
+                <h2 class="feature-title">2-year warranty</h2>
+                <p class="feature-text">Every product is covered against defects.</p>
+              </div>
             </div>
-            <button type="submit" class="btn btn-brand w-100">Send message</button>
-            <div class="alert alert-success mt-3 d-none" id="formSuccess" role="alert">Thanks! We will get back to you soon.</div>
-          </form>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Footer -->
-  <footer class="site-footer text-white py-4">
-    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
-      <p class="mb-0">&copy; 2026 Delicious Bites. All rights reserved.</p>
-      <div class="social fs-4">
-        <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
-        <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-        <a href="#" aria-label="X"><i class="bi bi-twitter-x"></i></a>
+    <!-- ==================== PRODUCTS ==================== -->
+    <section class="products" id="products">
+      <div class="container">
+        <h2 class="section-title text-center">Our best sellers</h2>
+        <p class="section-sub text-center">Four favourites our customers keep coming back for.</p>
+
+        <!-- 1 column on phones, 2 on tablets, 4 on desktop -->
+        <div class="row g-4">
+
+          <!-- Product 1 -->
+          <div class="col-12 col-sm-6 col-lg-3">
+            <article class="card product-card h-100">
+              <span class="badge product-badge">Best seller</span>
+              <img src="https://placehold.co/600x600/dfe6f7/1b2a4a?text=Backpack" class="card-img-top" alt="Trail daypack">
+              <div class="card-body d-flex flex-column">
+                <h3 class="product-name">Trail Daypack</h3>
+                <p class="product-desc">Water-resistant 22L backpack with a padded laptop sleeve.</p>
+                <div class="d-flex justify-content-between align-items-center mt-auto">
+                  <span class="product-price">$79</span>
+                  <a href="#contact" class="btn btn-accent btn-sm">Shop Now</a>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- Product 2 -->
+          <div class="col-12 col-sm-6 col-lg-3">
+            <article class="card product-card h-100">
+              <img src="https://placehold.co/600x600/e6f2ea/1b3a2a?text=Headphones" class="card-img-top" alt="Wireless headphones">
+              <div class="card-body d-flex flex-column">
+                <h3 class="product-name">Studio Headphones</h3>
+                <p class="product-desc">Wireless over-ear sound with 40 hours of battery life.</p>
+                <div class="d-flex justify-content-between align-items-center mt-auto">
+                  <span class="product-price">$129</span>
+                  <a href="#contact" class="btn btn-accent btn-sm">Shop Now</a>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- Product 3 -->
+          <div class="col-12 col-sm-6 col-lg-3">
+            <article class="card product-card h-100">
+              <span class="badge product-badge">New</span>
+              <img src="https://placehold.co/600x600/f7ecdf/4a2f1b?text=Bottle" class="card-img-top" alt="Insulated water bottle">
+              <div class="card-body d-flex flex-column">
+                <h3 class="product-name">Steel Bottle</h3>
+                <p class="product-desc">Insulated 750ml bottle keeps drinks cold for 24 hours.</p>
+                <div class="d-flex justify-content-between align-items-center mt-auto">
+                  <span class="product-price">$32</span>
+                  <a href="#contact" class="btn btn-accent btn-sm">Shop Now</a>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- Product 4 -->
+          <div class="col-12 col-sm-6 col-lg-3">
+            <article class="card product-card h-100">
+              <img src="https://placehold.co/600x600/f1e6f4/3a1b4a?text=Desk+Lamp" class="card-img-top" alt="LED desk lamp">
+              <div class="card-body d-flex flex-column">
+                <h3 class="product-name">Focus Desk Lamp</h3>
+                <p class="product-desc">Dimmable LED lamp with three colour temperatures.</p>
+                <div class="d-flex justify-content-between align-items-center mt-auto">
+                  <span class="product-price">$54</span>
+                  <a href="#contact" class="btn btn-accent btn-sm">Shop Now</a>
+                </div>
+              </div>
+            </article>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="site-footer" id="contact">
+    <div class="container">
+      <div class="row g-4">
+        <!-- About -->
+        <div class="col-12 col-md-5">
+          <a class="brand footer-brand" href="#home">Northwind</a>
+          <p class="footer-text mt-2">Thoughtfully made everyday gear, shipped worldwide.</p>
+        </div>
+        <!-- Quick links -->
+        <div class="col-12 col-md-3">
+          <h2 class="footer-title">Explore</h2>
+          <ul class="list-unstyled footer-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#products">Products</a></li>
+            <li><a href="#features">Why Us</a></li>
+          </ul>
+        </div>
+        <!-- Contact details -->
+        <div class="col-12 col-md-4">
+          <h2 class="footer-title">Contact</h2>
+          <ul class="list-unstyled footer-links">
+            <li>hello@northwind.example</li>
+            <li>+234 800 000 0000</li>
+            <li>Lagos, Nigeria</li>
+          </ul>
+        </div>
+      </div>
+
+      <hr class="footer-line">
+
+      <!-- Copyright + social icons -->
+      <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center gap-2">
+        <p class="footer-text mb-0">&copy; 2026 Northwind Goods. All rights reserved.</p>
+        <div class="social fs-5">
+          <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="#" aria-label="X"><i class="bi bi-twitter-x"></i></a>
+        </div>
       </div>
     </div>
   </footer>
 
+  <!-- Bootstrap JS (needed for the mobile menu button) -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    var count = 0;
-    document.querySelectorAll(".btn-add").forEach(function (b) {
-      b.addEventListener("click", function () {
-        count++;
-        document.getElementById("count").textContent = count;
-      });
-    });
-    document.querySelectorAll(".needs-validation").forEach(function (form) {
-      form.addEventListener("submit", function (e) {
-        e.preventDefault();
-        if (form.checkValidity()) {
-          document.getElementById("formSuccess").classList.remove("d-none");
-          form.reset();
-          form.classList.remove("was-validated");
-        } else {
-          form.classList.add("was-validated");
-        }
-      });
-    });
-  </script>
 </body>
 </html>
