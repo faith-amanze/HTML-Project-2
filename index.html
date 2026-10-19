@@ -1,231 +1,67 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <!-- Makes the page scale correctly on phones -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Northwind Goods | Everyday carry, designed to last</title>
+:root {
+  --ink: #1f2933;
+  --muted: #6b7280;
+  --brand: #e4572e;
+  --brand-dark: #c74421;
+  --cream: #faf7f2;
+  --line: #eee6da;
+}
 
-  <!-- Bootstrap 5 (CSS framework for the grid, navbar, cards and buttons) -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Bootstrap Icons (cart, feature and social icons) -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
-  <!-- Poppins font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <!-- Our own styles (loaded last so they can override Bootstrap) -->
-  <link href="styles.css" rel="stylesheet">
-</head>
-<body>
+html { scroll-behavior: smooth; }
+body { font-family: 'Roboto', sans-serif; background: var(--cream); color: var(--ink); }
+section[id], .category-title { scroll-margin-top: 80px; }
 
-  <!-- ==================== HEADER: navigation ==================== -->
-  <header class="site-header sticky-top">
-    <nav class="navbar navbar-expand-md bg-white">
-      <div class="container">
-        <!-- Brand / logo -->
-        <a class="navbar-brand brand" href="#home">Northwind</a>
+.bg-cream { background: #f3ece1; }
+.fw-black { font-weight: 900; }
 
-        <!-- Menu button shown on small screens -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#mainNav" aria-controls="mainNav"
-                aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+/* Navbar */
+.logo { font-weight: 900; font-size: 1.4rem; color: var(--brand); }
+.navbar .nav-link { font-weight: 500; color: var(--ink); }
+.navbar .nav-link:hover { color: var(--brand); }
+.cart { background: var(--ink); color: #fff; border-radius: 999px; padding: 8px 16px; font-size: .9rem; font-weight: 500; white-space: nowrap; }
 
-        <!-- Links to the sections of this page -->
-        <div class="collapse navbar-collapse" id="mainNav">
-          <ul class="navbar-nav ms-auto align-items-md-center gap-md-2">
-            <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="#products">Products</a></li>
-            <li class="nav-item"><a class="nav-link" href="#features">Why Us</a></li>
-            <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-            <li class="nav-item ms-md-2">
-              <a class="btn btn-ink btn-sm" href="#products"><i class="bi bi-bag me-1"></i>Shop</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-  </header>
+/* Hero */
+.hero {
+  min-height: 75vh;
+  background:
+    linear-gradient(rgba(20, 12, 8, 0.55), rgba(20, 12, 8, 0.55)),
+    url('images/grilled-salmon.jpeg') center / cover no-repeat;
+}
 
-  <main>
-    <!-- ==================== HERO ==================== -->
-    <section class="hero" id="home">
-      <div class="container">
-        <div class="row align-items-center g-4 gx-lg-5">
-          <!-- Text column -->
-          <div class="col-lg-6 text-center text-lg-start">
-            <span class="hero-tag">New season collection</span>
-            <h1 class="hero-title">Everyday carry, designed to last.</h1>
-            <p class="hero-text">Bags, audio and desk gear made with honest materials and a two-year warranty. Free shipping on orders over $50.</p>
-            <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center justify-content-lg-start">
-              <a href="#products" class="btn btn-accent btn-lg">Shop now</a>
-              <a href="#features" class="btn btn-outline-ink btn-lg">Why Northwind</a>
-            </div>
-          </div>
-          <!-- Image column (replace with a real product photo) -->
-          <div class="col-lg-6">
-            <img src="https://placehold.co/700x560/dfe6f7/1b2a4a?text=Hero+product+photo"
-                 class="img-fluid hero-img" alt="Northwind backpack and headphones on a desk">
-          </div>
-        </div>
-      </div>
-    </section>
+/* Buttons */
+.btn-brand {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: var(--brand);
+  --bs-btn-border-color: var(--brand);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: var(--brand-dark);
+  --bs-btn-hover-border-color: var(--brand-dark);
+  --bs-btn-active-bg: var(--brand-dark);
+  --bs-btn-active-border-color: var(--brand-dark);
+  font-weight: 500;
+}
 
-    <!-- ==================== FEATURES (store promises) ==================== -->
-    <section class="features" id="features">
-      <div class="container">
-        <div class="row g-4 text-center text-md-start">
-          <div class="col-12 col-md-4">
-            <div class="feature">
-              <i class="bi bi-truck feature-icon"></i>
-              <div>
-                <h2 class="feature-title">Free shipping</h2>
-                <p class="feature-text">On every order over $50, delivered in 3 to 5 days.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-md-4">
-            <div class="feature">
-              <i class="bi bi-arrow-repeat feature-icon"></i>
-              <div>
-                <h2 class="feature-title">30-day returns</h2>
-                <p class="feature-text">Not happy? Send it back for a full refund.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-md-4">
-            <div class="feature">
-              <i class="bi bi-shield-check feature-icon"></i>
-              <div>
-                <h2 class="feature-title">2-year warranty</h2>
-                <p class="feature-text">Every product is covered against defects.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+/* Menu */
+.section-title { font-weight: 900; font-size: 2.2rem; }
+.category-title { font-weight: 700; font-size: 1.5rem; padding-bottom: 8px; margin-bottom: 20px; border-bottom: 2px solid var(--line); }
 
-    <!-- ==================== PRODUCTS ==================== -->
-    <section class="products" id="products">
-      <div class="container">
-        <h2 class="section-title text-center">Our best sellers</h2>
-        <p class="section-sub text-center">Four favourites our customers keep coming back for.</p>
+.menu-card { position: relative; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; transition: transform .15s, box-shadow .15s; }
+.menu-card:hover { transform: translateY(-4px); box-shadow: 0 10px 24px rgba(0, 0, 0, .08); }
+.item-photo { aspect-ratio: 3 / 2; object-fit: cover; }
+.item-badge { position: absolute; top: 10px; left: 10px; background: var(--brand); font-size: .72rem; font-weight: 700; border-radius: 999px; padding: 5px 10px; }
+.rating { color: #f5a623; font-size: .85rem; letter-spacing: 1px; }
+.rating-count { color: var(--muted); letter-spacing: 0; margin-left: 6px; }
+.price { font-size: 1.2rem; font-weight: 700; }
 
-        <!-- 1 column on phones, 2 on tablets, 4 on desktop -->
-        <div class="row g-4">
+/* Form */
+.form-control:focus { border-color: var(--brand); box-shadow: 0 0 0 .2rem rgba(228, 87, 46, .25); }
 
-          <!-- Product 1 -->
-          <div class="col-12 col-sm-6 col-lg-3">
-            <article class="card product-card h-100">
-              <span class="badge product-badge">Best seller</span>
-              <img src="https://placehold.co/600x600/dfe6f7/1b2a4a?text=Backpack" class="card-img-top" alt="Trail daypack">
-              <div class="card-body d-flex flex-column">
-                <h3 class="product-name">Trail Daypack</h3>
-                <p class="product-desc">Water-resistant 22L backpack with a padded laptop sleeve.</p>
-                <div class="d-flex justify-content-between align-items-center mt-auto">
-                  <span class="product-price">$79</span>
-                  <a href="#contact" class="btn btn-accent btn-sm">Shop Now</a>
-                </div>
-              </div>
-            </article>
-          </div>
+/* Footer */
+.site-footer { background: var(--ink); }
+.social a { color: #fff; margin-left: .75rem; text-decoration: none; }
+.social a:hover { color: var(--brand); }
 
-          <!-- Product 2 -->
-          <div class="col-12 col-sm-6 col-lg-3">
-            <article class="card product-card h-100">
-              <img src="https://placehold.co/600x600/e6f2ea/1b3a2a?text=Headphones" class="card-img-top" alt="Wireless headphones">
-              <div class="card-body d-flex flex-column">
-                <h3 class="product-name">Studio Headphones</h3>
-                <p class="product-desc">Wireless over-ear sound with 40 hours of battery life.</p>
-                <div class="d-flex justify-content-between align-items-center mt-auto">
-                  <span class="product-price">$129</span>
-                  <a href="#contact" class="btn btn-accent btn-sm">Shop Now</a>
-                </div>
-              </div>
-            </article>
-          </div>
-
-          <!-- Product 3 -->
-          <div class="col-12 col-sm-6 col-lg-3">
-            <article class="card product-card h-100">
-              <span class="badge product-badge">New</span>
-              <img src="https://placehold.co/600x600/f7ecdf/4a2f1b?text=Bottle" class="card-img-top" alt="Insulated water bottle">
-              <div class="card-body d-flex flex-column">
-                <h3 class="product-name">Steel Bottle</h3>
-                <p class="product-desc">Insulated 750ml bottle keeps drinks cold for 24 hours.</p>
-                <div class="d-flex justify-content-between align-items-center mt-auto">
-                  <span class="product-price">$32</span>
-                  <a href="#contact" class="btn btn-accent btn-sm">Shop Now</a>
-                </div>
-              </div>
-            </article>
-          </div>
-
-          <!-- Product 4 -->
-          <div class="col-12 col-sm-6 col-lg-3">
-            <article class="card product-card h-100">
-              <img src="https://placehold.co/600x600/f1e6f4/3a1b4a?text=Desk+Lamp" class="card-img-top" alt="LED desk lamp">
-              <div class="card-body d-flex flex-column">
-                <h3 class="product-name">Focus Desk Lamp</h3>
-                <p class="product-desc">Dimmable LED lamp with three colour temperatures.</p>
-                <div class="d-flex justify-content-between align-items-center mt-auto">
-                  <span class="product-price">$54</span>
-                  <a href="#contact" class="btn btn-accent btn-sm">Shop Now</a>
-                </div>
-              </div>
-            </article>
-          </div>
-
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- ==================== FOOTER ==================== -->
-  <footer class="site-footer" id="contact">
-    <div class="container">
-      <div class="row g-4">
-        <!-- About -->
-        <div class="col-12 col-md-5">
-          <a class="brand footer-brand" href="#home">Northwind</a>
-          <p class="footer-text mt-2">Thoughtfully made everyday gear, shipped worldwide.</p>
-        </div>
-        <!-- Quick links -->
-        <div class="col-12 col-md-3">
-          <h2 class="footer-title">Explore</h2>
-          <ul class="list-unstyled footer-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#products">Products</a></li>
-            <li><a href="#features">Why Us</a></li>
-          </ul>
-        </div>
-        <!-- Contact details -->
-        <div class="col-12 col-md-4">
-          <h2 class="footer-title">Contact</h2>
-          <ul class="list-unstyled footer-links">
-            <li>hello@northwind.example</li>
-            <li>+234 800 000 0000</li>
-            <li>Lagos, Nigeria</li>
-          </ul>
-        </div>
-      </div>
-
-      <hr class="footer-line">
-
-      <!-- Copyright + social icons -->
-      <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center gap-2">
-        <p class="footer-text mb-0">&copy; 2026 Northwind Goods. All rights reserved.</p>
-        <div class="social fs-5">
-          <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
-          <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-          <a href="#" aria-label="X"><i class="bi bi-twitter-x"></i></a>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Bootstrap JS (needed for the mobile menu button) -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; }
+}
